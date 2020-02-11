@@ -1,5 +1,5 @@
 # KefControl.gadget
-Windows gadget to control KEF LSX
+<img src="screen.png" width="50px" height="50px"> Windows gadget to control KEF LSX
 
 <B>Introduction</B>
 
