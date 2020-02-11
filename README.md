@@ -14,7 +14,7 @@ If you are using KEF LSX as PC speakers with an optical connection, you may not 
 
 <B>Powershell script</B>
 
-The kefctrl.ps1 powershell script is used by the gadget to control the LSX. kefctrl.ps1 needs to be used with the following arguments :
+The <a href="kefctrl.ps1">kefctrl.ps1</a> powershell script is used by the gadget to control the LSX. This script can be used as a standalone tool and requires the following arguments:
 
 keyctrl.ps1 &lt;IP&gt; &lt;inc|dec|aux|opt&gt;
 
