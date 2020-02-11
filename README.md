@@ -5,6 +5,8 @@ Supported features
 
 - Get and set volume
 - Select current output (wake up from standby)
+- Prevent LSX standby by selecting current output each 50 minutes
+- Detect exit from standby and wake up LSX 
 
 Install
 
