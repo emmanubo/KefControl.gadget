@@ -28,7 +28,8 @@ keyctrl.ps1 &lt;IP&gt; &lt;inc|dec|aux|opt&gt;
 
 <B>Install</B>
 
-Download project and copy KefControl.gadget to C:\Users\username\AppData\Local\Microsoft\Windows Sidebar\Gadgets\. Make sure to configure the gadget with the correct IP address/hostname for your LSX speakers.
+To use this gadget on Windows 10, you need to have <a href="https://8gadgetpack.net/">8gadgetpack</a> or similar tool installed.
+Then, download the project and copy the KefControl.gadget directory to C:\Users\username\AppData\Local\Microsoft\Windows Sidebar\Gadgets\. You should then be able to add the "Kef Control" gadget. Make sure to configure the gadget with the correct IP address/hostname for your LSX speakers.
 
 <B>License</B>
 
