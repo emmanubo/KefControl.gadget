@@ -16,7 +16,7 @@ If you are using KEF LSX as PC speakers with an optical connection, you may not 
 
 The kefctrl.ps1 powershell script is used by the gadget to control the LSX. kefctrl.ps1 needs to be used with the following arguments :
 
-keyctrl &lt;IP&gt; &lt;inc|dec|aux|opt&gt;
+keyctrl.ps1 &lt;IP&gt; &lt;inc|dec|aux|opt&gt;
 
 <table>
 <tr><td>IP</td><td>LSX IP address or hostname</td></tr>
