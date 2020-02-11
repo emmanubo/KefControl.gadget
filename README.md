@@ -3,7 +3,7 @@
 
 <B>Introduction</B>
 
-If you are using KEF LSX as PC speakers with an optical connection, you may not be able to change the speakers volume using standard Windows volume control. This Windows gadget provides basic features to control KEF LSX speakers. The gadget also "pools" the LSX speakers every 50 minutes to prevent standby and detects PC wake up from standby in order to wake up the speakers.
+If you are using KEF LSX as PC speakers with an optical connection, you may not be able to change the speakers volume using standard Windows volume control. This Windows gadget provides basic features to control KEF LSX speakers. The gadget also "pools" the LSX speakers every 50 minutes to prevent standby and detects when PC wakes up from standby in order to also wake up the speakers.
 
 <B>Supported features</B>
 
