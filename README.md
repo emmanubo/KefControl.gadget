@@ -8,12 +8,14 @@ Windows gadget to control KEF LSX
 - Prevent LSX standby by selecting current output each 50 minutes
 - Detect exit from standby and wake up LSX 
 
-Install
+<B>Install</B>
 
 Download project and copy KefControl.gadget to C:\Users\username\AppData\Local\Microsoft\Windows Sidebar\Gadgets\
 
-License
+<B>License</B>
+
 MIT License
 
-Contributions
+<B>Contributions</B>
+
 Emmanuel Boersma
