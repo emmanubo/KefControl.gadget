@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gadget>
+	<name>Kef Control</name>
+	<namespace>soundcontrol</namespace>
+	<version>1</version>
+	<author name="Emmanubo">
+		<info url="http://www.kef.com" text="Kef Control" />
+		<logo src="icon.png" />
+	</author>
+	<copyright>Emmanubo</copyright>
+	<description>Kef LSX volume control, toggle mute and start sound mixer (doubleclick)</description>
+	<icons>
+		<icon height="48" width="48" src="screen.png" />
+	</icons>
+	<hosts>
+		<host name="sidebar">
+			<base type="HTML" apiVersion="1.0.0.0" src="gadget.html" />
+			<permissions>Full</permissions>
+			<platform minPlatformVersion="1.0"/>
+			<defaultImage src="screen.png" />
+			<autoscaleDPI>true</autoscaleDPI>
+    </host>
+	</hosts>
+</gadget>

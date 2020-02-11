@@ -1,0 +1,21 @@
+﻿<html>
+<head>
+	<title>VolumeControl</title>
+	<link href="gadget.css" rel="stylesheet" type="text/css" />    
+	<script type="text/javascript" language="javascript" src="gadget.js"></script>
+</head>
+<body onload="init();" onunload="terminate()" > 
+<span id="gadgetContent">    
+	<g:background id="imgBackground" src="background.png">  
+<br>		  
+	  <table>
+	  <tr>
+	  <td><g:image src="minus.png" onclick="volumeDec()"/></td>
+	  <td><g:image src="plus.png" onclick="volumeInc()"/></td>
+	  <td><g:image src="onoff.png" onclick="KefOn()"/></td>
+	  </tr>
+	  </table>	  	  
+    </g:background>	
+ </span>
+</body>
+</html>
