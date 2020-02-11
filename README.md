@@ -1,7 +1,7 @@
 # KefControl.gadget
 Windows gadget to control KEF LSX
 
-Supported features
+<B>Supported features</B>
 
 - Get and set volume
 - Select current output (wake up from standby)
