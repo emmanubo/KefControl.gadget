@@ -7,10 +7,10 @@ If you are using KEF LSX as PC speakers with an optical connection, you may not 
 
 <B>Supported features</B>
 
-- Get and set volume
+- Adjust volume
 - Select current output (wake up from standby)
 - Prevent LSX standby by selecting current output each 50 minutes
-- Detect exit from standby and wake up LSX 
+- Detect exit from standby and wake up speakers
 
 <B>Powershell Script</B>
 
