@@ -35,9 +35,9 @@ Then, download the project and copy the KefControl.gadget directory to C:\Users\
 
 Thanks to Sebastian Riedel who shared the needed commands as part of his <a href="https://github.com/kraih/kefctl">kefctl</a> project.
 
-<B>License</B>
+<B>Copyright &amp; License</B>
 
-MIT License
+This program is under the terms of the MIT License.
 
 <B>Contributions</B>
 
