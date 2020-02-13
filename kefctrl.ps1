@@ -6,23 +6,42 @@ $global:tcpConnection=$null
 $global:tcpStream=$null
 
 function SetupConnection {
-Write-Output "SetupConnection" 
-#Write-Output $global:KefServer
-$global:tcpConnection = New-Object System.Net.Sockets.TcpClient($global:KefServer, $global:KefPort)
-$global:tcpStream = $tcpConnection.GetStream()
-$global:reader = New-Object System.IO.BinaryReader($tcpStream)
-$global:writer = New-Object System.IO.BinaryWriter($tcpStream)
+
+Try
+    {
+    Write-Host "SetupConnection"        
+    $global:tcpConnection = New-Object System.Net.Sockets.TcpClient($global:KefServer, $global:KefPort)
+    $global:tcpStream = $tcpConnection.GetStream()
+    $global:reader = New-Object System.IO.BinaryReader($tcpStream)
+    $global:writer = New-Object System.IO.BinaryWriter($tcpStream)
+    }
+Catch
+    {
+    Write-Host "SetupConnection failed :  $_.Exception.Message" 
+    return $false
+    }
+return $true
 }
+    
 
 function CloseConnection {
-Write-Output "CloseConnection"
-$global:reader.Close()
-$global:writer.Close()
-$global:tcpConnection.Close()
+Try
+    {
+    Write-Host "CloseConnection"
+    $global:reader.Close()
+    $global:writer.Close()
+    $global:tcpConnection.Close()
+    }
+Catch
+    {
+    Write-Host "CloseConnection failed :  $_.Exception.Message" 
+    }
 }
 
 function IncreaseVolume {
-	Write-Output "IncreaseVolume"
+Try
+    {
+	Write-Host "IncreaseVolume"
 	[byte[]] $cmd_GetVolume = 0x47,0x25,0x80,0x6C
 	$global:writer.Write($cmd_GetVolume, 0, $cmd_GetVolume.Length)
 	$buffer=New-Object Byte[] 5
@@ -37,20 +56,45 @@ function IncreaseVolume {
 	Write-Output "volume from $level to $MaxMin"
 	$global:writer.Write($cmd_SetVolume, 0, $cmd_SetVolume.Length)
 	}
+Catch
+    {
+    Write-Host "IncreaseVolume failed :  $_.Exception.Message" 
+    }
+}
 
 function SetAux {	
+Try
+    {
+	Write-Host "SetAux"
 	[byte[]] $cmd = 0x53,0x30,0x81,0x1A,0x9B
 	$global:writer.Write($cmd, 0, $cmd.Length)
 	}
+Catch
+    {
+    Write-Host "SetAux failed :  $_.Exception.Message" 
+    return $false
+    }
+return $true
+}
 
 function SetOptical {	
+Try
+    {
+	Write-Host "SetOptical"
 	[byte[]] $cmd = 0x53,0x30,0x81,0x1B,0x9B
 	$global:writer.Write($cmd, 0, $cmd.Length)
 	}
+Catch
+    {
+    Write-Host "SetOptical failed :  $_.Exception.Message" 
+    return $false
+    }
+return $true
+}
 
 if ($args.count -ne 2)
 	{
-	Write-Host "`nsyntax : keyctrl <IP> <inc|dec|aux|opt>"	
+	Write-Host "`nsyntax : keyctrl </h:IP> <inc|dec|aux|opt>"	
 	return
 	}
 
@@ -62,16 +106,16 @@ if ($args.count -ne 2)
 
 $a,$global:KefServer = $args[0].split(':') 
 
-SetupConnection 
-
-for ( $i = 1; $i -lt $args.count; $i++ ) {
-	switch ( $args[$i] )
-	    {
-        	"inc" { IncreaseVolume(10)    }
-	        "dec" { IncreaseVolume(-10)    }
-	        "aux" { SetAux   }
-	        "opt" { SetOptical }
-	    }	    
-	}
-
-CloseConnection 
+if (SetupConnection)
+    {
+    for ( $i = 1; $i -lt $args.count; $i++ ) {
+	    switch ( $args[$i] )
+	        {
+        	    "inc" { IncreaseVolume(10)    }
+	            "dec" { IncreaseVolume(-10)    }
+	            "aux" { SetAux   }
+	            "opt" { SetOptical }
+	        }	    
+	    }
+    CloseConnection 
+    }
