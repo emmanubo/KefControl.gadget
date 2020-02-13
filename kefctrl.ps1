@@ -14,13 +14,14 @@ Try
     $global:tcpStream = $tcpConnection.GetStream()
     $global:reader = New-Object System.IO.BinaryReader($tcpStream)
     $global:writer = New-Object System.IO.BinaryWriter($tcpStream)
+    $return=$true
     }
 Catch
     {
     Write-Host "SetupConnection failed :  $_.Exception.Message" 
-    return $false
+     $return=$false
     }
-return $true
+return $return
 }
     
 
@@ -30,11 +31,11 @@ Try
     Write-Host "CloseConnection"
     $global:reader.Close()
     $global:writer.Close()
-    $global:tcpConnection.Close()
+    $global:tcpConnection.Close()    
     }
 Catch
     {
-    Write-Host "CloseConnection failed :  $_.Exception.Message" 
+    Write-Host "CloseConnection failed :  $_.Exception.Message"      
     }
 }
 
@@ -53,13 +54,16 @@ Try
 	if ($MaxMin -gt 100) {$MaxMin=100}
 	if ($MaxMin -lt 0) {$MaxMin=0}
 	$cmd_SetVolume[3]=$MaxMin 
-	Write-Output "volume from $level to $MaxMin"
+	Write-Host "Volume from $level to $MaxMin"
 	$global:writer.Write($cmd_SetVolume, 0, $cmd_SetVolume.Length)
+    $return=$true
 	}
 Catch
     {
     Write-Host "IncreaseVolume failed :  $_.Exception.Message" 
+   $return=$false
     }
+return $return
 }
 
 function SetAux {	
@@ -68,13 +72,14 @@ Try
 	Write-Host "SetAux"
 	[byte[]] $cmd = 0x53,0x30,0x81,0x1A,0x9B
 	$global:writer.Write($cmd, 0, $cmd.Length)
+    $return=$true
 	}
 Catch
     {
     Write-Host "SetAux failed :  $_.Exception.Message" 
-    return $false
+    $return=$false
     }
-return $true
+return $return
 }
 
 function SetOptical {	
@@ -83,13 +88,14 @@ Try
 	Write-Host "SetOptical"
 	[byte[]] $cmd = 0x53,0x30,0x81,0x1B,0x9B
 	$global:writer.Write($cmd, 0, $cmd.Length)
+    $return=$true
 	}
 Catch
     {
     Write-Host "SetOptical failed :  $_.Exception.Message" 
-    return $false
+    $return=$false
     }
-return $true
+return $return
 }
 
 if ($args.count -ne 2)
@@ -111,10 +117,10 @@ if (SetupConnection)
     for ( $i = 1; $i -lt $args.count; $i++ ) {
 	    switch ( $args[$i] )
 	        {
-        	    "inc" { IncreaseVolume(10)    }
-	            "dec" { IncreaseVolume(-10)    }
-	            "aux" { SetAux   }
-	            "opt" { SetOptical }
+        	    "inc" { if (IncreaseVolume(10)) {}    }
+	            "dec" { if (IncreaseVolume(-10)) {}    }
+	            "aux" { if (SetAux) {}  }
+	            "opt" { if (SetOptical) {} }
 	        }	    
 	    }
     CloseConnection 
