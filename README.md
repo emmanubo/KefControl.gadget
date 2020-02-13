@@ -17,10 +17,10 @@ If you are using KEF LSX as PC speakers with an optical connection, you may not 
 The <a href="kefctrl.ps1">kefctrl.ps1</a> powershell script is used by the gadget to control the LSX. This script can be used as a standalone tool and requires the following arguments:
 
 <pre><code>
-keyctrl.ps1 &lt;IP&gt; &lt;inc|dec|aux|opt&gt;
+keyctrl.ps1 &lt;/h:IP&gt; &lt;inc|dec|aux|opt&gt;
 
 <table>
-<tr><td>IP</td><td>LSX IP address or hostname</td></tr>
+<tr><td>/h:IP</td><td>LSX IP address or hostname</td></tr>
 <tr><td>inc</td><td>10% volume increase</td></tr>
 <tr><td>dec</td><td>10% volume decrease</td></tr>
 <tr><td>aux</td><td>select aux output</td></tr>
