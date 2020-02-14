@@ -54,7 +54,7 @@ function volumeInc() {
 }
 
 function KefOn() {
-    System.Debug.outputString("KefOn()\n");
+    // System.Debug.outputString("KefOn()\n");
     if (KefOut == "Optical") {
         ExecCmd("opt");
     } else {
