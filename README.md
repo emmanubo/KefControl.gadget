@@ -40,8 +40,3 @@ Thanks to Sebastian Riedel who shared the needed commands as part of his <a href
 <B>Copyright &amp; License</B>
 
 This program is under the terms of the MIT License.
-
-<B>Contributions</B>
-
-Emmanuel Boersma<br>
-Any collaboration welcome !
